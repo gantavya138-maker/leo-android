@@ -1,7 +1,7 @@
 package io.livekit.android.example.voiceassistant
 
 // TODO: Add your Token Server ID here
-const val tokenServerId = ""
+const val tokenServerId = "leo-2j9fvo"
 
 // NOTE: If you prefer not to use the token server for testing, you can generate your
 // tokens manually by visiting https://cloud.livekit.io/projects/p_/settings/keys
