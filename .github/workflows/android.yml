@@ -21,12 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./components-android
+        working-directory: .
     steps:
     - name: checkout components-android
       uses: actions/checkout@v6
       with:
-        path: ./components-android
+        path: .
         submodules: recursive
 
     - name: set up JDK 17
@@ -47,6 +47,11 @@ jobs:
 
     - name: Gradle clean
       run: ./gradlew clean
+    - name: Build debug APK
+      run: ./gradlew assembleDebug
 
-    - name: Build with Gradle
-      run: ./gradlew assembleRelease
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: leo-debug-apk
+        path: '**/build/outputs/apk/debug/*.apk'
